@@ -163,15 +163,6 @@ return {
       },
     },
   },
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --
-  --   config = function()
-  --     require("copilot").setup({})
-  --   end,
-  -- },
 
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
@@ -211,8 +202,16 @@ return {
         "tsx",
         "typescript",
         "python",
+        "ninja",
+        "rst",
       })
     end,
+  },
+
+  -- GitSings and setup with LazyGit
+  {
+    "lewis6991/gitsigns.nvim",
+    require("gitsings").setup(),
   },
 
   -- the opts function can also be used to change the default opts:
