@@ -12,6 +12,7 @@ return {
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
 
+  --
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
@@ -37,6 +38,7 @@ return {
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })
+      table.insert(opts.sources, { name = "supermaven" })
     end,
   },
 
@@ -96,27 +98,27 @@ return {
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
         tsserver = {},
-        jedi_lenguage_server = {
-          settings = {
-            python = {
-              jediEnabled = true,
-              jediPath = "/usr/bin/jedi-language-server",
-              jediSettings = {
-                autoImportModules = {
-                  "numpy",
-                  "pandas",
-                  "torch",
-                  "torchvision",
-                  "sklearn",
-                  "matplotlib",
-                  "seaborn",
-                  "tensorflow",
-                  "keras",
-                },
-              },
-            },
-          },
-        },
+        -- jedi_lenguage_server = {
+        --   settings = {
+        --     python = {
+        --       jediEnabled = true,
+        --       jediPath = "/usr/bin/jedi-language-server",
+        --       jediSettings = {
+        --         autoImportModules = {
+        --           "numpy",
+        --           "pandas",
+        --           "torch",
+        --           "torchvision",
+        --           "sklearn",
+        --           "matplotlib",
+        --           "seaborn",
+        --           "tensorflow",
+        --           "keras",
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
         lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
           -- Use this to add any additional keymaps
@@ -166,7 +168,8 @@ return {
 
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
-  { import = "lazyvim.plugins.extras.lang.typescript" },
+  -- { import = "lazyvim.plugins.extras.lang.typescript" },
+  { import = "lazyvim.plugins.extras.lang.python" },
 
   -- add more treesitter parsers
   {
@@ -184,7 +187,7 @@ return {
         "query",
         "regex",
         "tsx",
-        "typescript",
+        -- "typescript",
         "vim",
         "yaml",
       },
@@ -204,6 +207,7 @@ return {
         "python",
         "ninja",
         "rst",
+        "html",
       })
     end,
   },
@@ -251,6 +255,7 @@ return {
         "flake8",
         "isort",
         "black",
+        "html",
       },
     },
   },
